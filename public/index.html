@@ -8,19 +8,28 @@
 <meta property="og:title" content="Porthos Barbearia">
 <meta property="og:description" content="Um espaço para homens exigentes! É tempo de Porthos!">
 <meta property="og:image" content="https://ugc.production.linktr.ee/6190395f-1337-47fe-9eb6-85068232f08e_A23C2C74-2434-46BA-8A25-173CBFE69EC3.jpeg?io=true&size=avatar-v3_0">
-<meta name="theme-color" content="#000000">
+<meta name="theme-color" content="#101010">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --bg:#000;--card:transparent;--txt:#fff;--txt2:#adadad;--txt3:#999;
+  --bg:#101010;--card:transparent;--txt:#fff;--txt2:#adadad;--txt3:#999;
   --line:#fff;--bdr:rgba(255,255,255,.14);--r:0px;
   --ease:cubic-bezier(.22,1,.36,1);
   --impact:Impact,'Anton','Haettenschweiler','Arial Narrow Bold',sans-serif;
 }
-body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(--txt);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(--txt);-webkit-font-smoothing:antialiased;overflow-x:hidden;isolation:isolate}
+html{background:#101010}
+/* fundo dark grain: profundidade + granulação (::before) e vinheta (::after), estáticos */
+body::before,body::after{content:'';position:fixed;inset:0;z-index:0;pointer-events:none}
+body::before{
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.13'/%3E%3C/svg%3E"),
+    radial-gradient(ellipse 120% 80% at 50% 35%,#171717 0%,#141414 45%,#101010 100%);
+}
+body::after{background:radial-gradient(ellipse at center,transparent 55%,rgba(0,0,0,.35) 100%)}
 .page{max-width:480px;margin:0 auto;padding-bottom:3rem;position:relative;z-index:1}
 svg.i{width:22px;height:22px;fill:currentColor}
 
@@ -100,11 +109,11 @@ svg.i{width:22px;height:22px;fill:currentColor}
 .hint{font-size:12px;color:var(--txt3);margin-top:10px;text-align:center}
 
 /* local */
-.loc-card{border:1px solid var(--line);background:#000;overflow:hidden;width:100%;max-width:100%}
+.loc-card{border:1px solid var(--line);background:transparent;overflow:hidden;width:100%;max-width:100%}
 .loc{padding:18px;display:flex;align-items:center;gap:14px;text-decoration:none;color:#fff;transition:background .3s,color .3s}
 .loc:hover,.loc:focus-visible{background:#fff;color:#000}
-.map{position:relative;width:100%;height:clamp(250px,72vw,320px);overflow:hidden;border-top:1px solid var(--bdr);background:#111}
-.map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;filter:grayscale(1) invert(.92) contrast(.9) brightness(.95)}
+.map{position:relative;width:100%;height:clamp(250px,72vw,320px);overflow:hidden;border-top:1px solid var(--bdr);background:#101010}
+.map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;filter:grayscale(1)}
 .loc-pin{width:46px;height:46px;border:1px solid var(--bdr);display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .loc-info{flex:1;min-width:0}
 .loc-nm{display:block;font-size:14.5px;font-weight:700;margin-bottom:2px}
